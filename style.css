@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+body {
+  color: #00000e;
+  background-color: #ffffff;
+  font-family: Roboto, serif;
+  font-size: 16px;
+  line-height: 22px;
+  margin: auto;
+  width: 75%;
+  padding-top: 25px;
+}
+
+pre {
+  color: #000000;
+  background: #eeeeee;
+  border: 0px solid #222222;
+  border-left: 3px solid #222222;
+  box-shadow: none;
+  font-size: 16px;
+  font-family: monospace;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+blockquote {
+  color: #000000;
+  background: #eeeeee;
+  border: 0px solid #222222;
+  border-left: 3px solid #222222;
+  box-shadow: none;
+  font-family: serif;
+  font-size: 16px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+a {
+  color: #000000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  list-style: none;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+h2 {
+  font-size: 26px;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+h5,
+h6 {
+  font-size: 18px;
+}
+
+#postamble {
+  display: none;
+}
+
+img {
+    width: 100%;
+    max-width: 600px;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    min-width: 400px;
+}
+
+thead tr {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: left;
+}
+
+th, td {
+    padding: 12px 15px;
+}
+
+tbody tr:last-of-type {
+    border-bottom: 2px solid #000000;
+}

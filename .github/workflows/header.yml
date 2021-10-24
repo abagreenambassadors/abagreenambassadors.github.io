@@ -14,9 +14,11 @@ jobs:
       - name: Run a multi-line script
         run: |
           for i in $(find . -not -path '*/\.*'); do
+            pwd
             if [[ $i == *"html" ]]; then
               grep '<head>' $i --quiet
               if [ $? = 1 ]; then
+                pwd
                 sed -i -e "1i `cat header.txt`" $i
               fi
             fi

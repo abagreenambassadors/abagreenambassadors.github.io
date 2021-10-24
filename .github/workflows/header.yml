@@ -15,10 +15,12 @@ jobs:
         run: |
           for i in $(find . -not -path '*/\.*'); do
             pwd
+            ls
             if [[ $i == *"html" ]]; then
-              grep '<head>' $i --quiet
+              grep '<head>' $i
               if [ $? = 1 ]; then
                 pwd
+                ls
                 sed -i -e "1i `cat .github/workflows/header.txt`" $i
               fi
             fi

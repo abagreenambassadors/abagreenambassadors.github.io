@@ -13,13 +13,19 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run a multi-line script
         run: |
+            git clone https://github.com/abagreenambassadors/abagreenambassadors.github.io
+            cd abagreenambassadors.github.io
             for i in $(find . -not -path '*/\.*'); do
               if [[ $i == *"html" ]]; then
                 grep '.*<head>.*' $i --quiet
                 if [ $? = 1 ]; then
                     cp .github/workflows/header.txt $i-header.html
                     cat $i >> $i-header.html
-                    #mv $i-header.html $i
+                    mv $i-header.html $i
                 fi
               fi
+            done
+            git add .
+            git commit -m "Github CI: Add header to files"
+              git push
             done

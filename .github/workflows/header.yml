@@ -16,6 +16,7 @@ jobs:
             git clone https://github.com/abagreenambassadors/abagreenambassadors.github.io
             cd abagreenambassadors.github.io
       - name: Replace text
+      - if: always()
         run: |
             for i in $(find . -not -path '*/\.*'); do
               if [[ $i == *"html" ]]; then

@@ -12,13 +12,12 @@ jobs:
     continue-on-error: true
     steps:
       - uses: actions/checkout@v2
-      - name: Clone repository
+      - name: Make changes and push
         run: |
             git clone https://github.com/abagreenambassadors/abagreenambassadors.github.io
             cd abagreenambassadors.github.io
-      - name: Replace text
-        run: |
             for i in $(find . -not -path '*/\.*'); do
+              echo $i
               if [[ $i == *"html" ]]; then
                 grep '.*<head>.*' $i --quiet
                 if [ $? = 1 ]; then
@@ -28,8 +27,6 @@ jobs:
                 fi
               fi
             done
-      - name: Push changes
-        run: |
             git add .
             git commit -m "Github CI: Add header to files"
             git push

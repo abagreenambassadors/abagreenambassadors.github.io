@@ -11,10 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Clone and edit files
+      - name: Clone repository
         run: |
             git clone https://github.com/abagreenambassadors/abagreenambassadors.github.io
             cd abagreenambassadors.github.io
+      - name: Replace text
+        run: |
             for i in $(find . -not -path '*/\.*'); do
               if [[ $i == *"html" ]]; then
                 grep '.*<head>.*' $i --quiet
@@ -25,6 +27,8 @@ jobs:
                 fi
               fi
             done
+      - name: Push changes
+        run: |
             git add .
             git commit -m "Github CI: Add header to files"
             git push

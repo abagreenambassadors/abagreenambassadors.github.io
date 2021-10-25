@@ -9,7 +9,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
       - uses: actions/checkout@v2
       - name: Make changes and push
@@ -17,8 +16,7 @@ jobs:
             git clone https://github.com/abagreenambassadors/abagreenambassadors.github.io
             cd abagreenambassadors.github.io
             for i in $(find . -not -path '*/\.*' -iname '*.html'); do
-              echo $i
-              grep '.*<head>.*' $i --quiet
+              grep '.*<head>.*' $i
               if [[ $? == 1 ]]; then
                   cp .github/workflows/header.txt $i-header.html
                   cat $i >> $i-header.html

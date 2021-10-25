@@ -21,6 +21,7 @@ jobs:
                   cp .github/workflows/header.txt $i-header.html
                   cat $i >> $i-header.html
                   #mv $i-header.html $i
+                  (exit 0)
               fi
             done
             git add .

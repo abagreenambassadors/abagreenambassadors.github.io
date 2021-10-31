@@ -13,17 +13,22 @@ jobs:
       - uses: actions/checkout@v2
       - name: Make changes and push
         run: |
+         echo Cloning
          git clone https://github.com/abagreenambassadors/abagreenambassadors.github.io
          cd abagreenambassadors.github.io
+         echo For loop
          for i in $(find . -not -path '*/\.*' -iname '*.html'); do
-            grep '.*<head>.*' $i
-            if [[ $? == 1 ]]; then
-                cp .github/workflows/header.txt $i-header.html
-                cat $i >> $i-header.html
-                #mv $i-header.html $i
-                (exit 0)
-            fi
-          done
-          git add .
-          git commit -m "Github CI: Add header to files"
-          git push
+             echo $i
+             echo Grepping
+             #grep '.*<head>.*' $i
+             #if [[ $? == 1 ]]; then
+                 echo Modifying
+                 cp .github/workflows/header.txt $i-header.html
+                 cat $i >> $i-header.html
+                 mv $i-header.html $i
+                 (exit 0)
+             #fi
+         done
+         git add .
+         git commit -m "Github CI: Add header to files"
+         git push

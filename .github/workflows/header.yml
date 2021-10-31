@@ -14,10 +14,11 @@ jobs:
       - name: Make changes and push
         run: |
          echo Cloning
-         git clone https://github.com/abagreenambassadors/abagreenambassadors.github.io
-         git config --global user.email "mcotocel@outlook.com"
-         git config --global user.name "Matei Cotocel"
-         cd abagreenambassadors.github.io
+         #git clone https://github.com/abagreenambassadors/abagreenambassadors.github.io
+         #git config --global user.email "mcotocel@outlook.com"
+         #git config --global user.name "Matei Cotocel"
+         #cd abagreenambassadors.github.io
+         git remote set-url origin ${{ secrets.ssh }}
          echo For loop
          for i in $(find . -not -path '*/\.*' -iname '*.html'); do
              echo $i

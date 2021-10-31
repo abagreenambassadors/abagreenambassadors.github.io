@@ -14,7 +14,7 @@ jobs:
       - name: Make changes and push
         run: |
          for i in $(find . -not -path '*/\.*' -iname '*.html'); do
-             if grep -q '<title>Al Bateen Green Ambassadors site</title>' $i; then
+             if ! grep -q '<title>Al Bateen Green Ambassadors site</title>' $i; then
                  cp .github/workflows/header.txt $i-header.html
                  cat $i >> $i-header.html
                  mv $i-header.html $i

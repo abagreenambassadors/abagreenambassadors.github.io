@@ -1,0 +1,21 @@
+name: Pandoc
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: pandoc
+        run: |
+          sudo apt install pandoc
+          for i in $(ls blog/*.md); do
+              pandoc $i $i.html
+          done

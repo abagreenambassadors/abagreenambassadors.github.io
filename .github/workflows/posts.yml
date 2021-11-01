@@ -15,7 +15,7 @@ jobs:
         run: |
          pwd
          for i in $(ls -1 ./blog/*.html); do
-             sed "/<h1>/a \<a href=$i\>$i\<\/a\>" ./blog.html
+             sed -i "/<h1>/a \<a href=$i\>$i\<\/a\>" ./blog.html
          done
          git config user.name github-actions
          git config user.email github-actions@github.com

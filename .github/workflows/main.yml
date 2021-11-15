@@ -41,7 +41,7 @@ jobs:
          pwd
          for i in $(ls -1 ./blog/*.html); do
            if ! grep -q "$i" ./blog.html; then
-            sed -i "/<h1>/a \<li\>\<a href=$i\>$i\<\/a\>\<li\>" ./blog.html
+            sed -i "/<h1>/a \<li\>\<a href=$i\>$i\<\/a\>\<li\/\>" ./blog.html
            fi
          done
          git config user.name github-actions
